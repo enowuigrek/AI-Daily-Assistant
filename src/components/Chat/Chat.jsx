@@ -32,7 +32,14 @@ export default function Chat({ onAdd }) {
         return;
       }
 
-      if (tasks.length === 0) return;
+      if (tasks.length === 0) {
+        setMessages((prev) => {
+          const updated = [...prev];
+          updated.pop();
+          return [...updated];
+        });
+        return;
+      }
 
       setMessages((prev) => {
         const updated = [...prev];
